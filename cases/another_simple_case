@@ -1,0 +1,17 @@
+
+[note]
+
+It is a passed case
+
+[loop]
+1
+
+[command]
+
+echo "test case no.2"
+
+[expect]
+
+test case no.2
+
+

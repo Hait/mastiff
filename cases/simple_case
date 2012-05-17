@@ -1,0 +1,33 @@
+
+[note]
+
+It is a passed case
+
+[loop]
+3
+
+[command]
+
+echo "test case"
+
+[expect]
+
+test case
+
+
+
+[note]
+
+It is a failed case
+
+[loop]
+1
+
+[command]
+
+echo "test case"
+
+[expect]
+
+wrong
+
