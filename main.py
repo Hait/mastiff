@@ -4,6 +4,7 @@ import os
 import time
 import commands
 import shutil
+import re
 
 from html_output import HtmlOutput
 
@@ -77,7 +78,14 @@ def deal_test_failure(output):
 def do_command():
 	for i in range(int(test_loop)):
 		out = commands.getoutput(test_command)
-		if out.find(expect_result) == -1:
+		out_formated = out.replace("\n", "")
+		out_formated = re.sub("\t", " ", out_formated)
+		out_formated = re.sub(" +", " ", out_formated)
+		out_formated = re.sub("You have mail in.*", "", out_formated)
+		expect_formated = expect_result 
+		expect_formated = re.sub("\t", " ", expect_formated)
+		expect_formated = re.sub(" +", " ", expect_formated)
+		if out_formated.find(expect_formated) == -1:
 			deal_test_failure(out)
 		else:
 			result_html.write_pass()
@@ -154,6 +162,7 @@ check_details_dir()
 
 get_case_files_list()
 
+case_files.sort()
 for file in case_files:
 	idx += 1
 	do_cases_of_file(file, idx)
