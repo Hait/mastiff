@@ -1,8 +1,6 @@
 #!/bin/sh
 
-mkdir /home/wujue.yht/abdir
-
-user="wujue.yht"
+user="user"
 
 idx=1
 
