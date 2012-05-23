@@ -1,0 +1,33 @@
+
+[note]
+
+create one vdi at local
+
+[loop]
+1
+
+[command]
+
+collie vdi create v1 1G 
+
+[expect]
+
+$?
+
+
+[note]
+
+create one same vdi at local and it will fail. If you see the fail, do not
+care about it
+
+[loop]
+1
+
+[command]
+
+collie vdi create v1 1G 
+
+[expect]
+
+$?
+

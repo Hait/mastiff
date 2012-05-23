@@ -1,0 +1,20 @@
+
+[note]
+
+list all of nodes of cluster. check if all of nodes has 
+joined
+
+[loop]
+1
+
+[command]
+
+collie node list
+
+
+[expect]
+
+M   Id   Host:Port         V-Nodes       Zone
+-    0   10.232.135.205:7000     1 -846731254
+-    4   10.232.135.209:7000     1 -779622390
+

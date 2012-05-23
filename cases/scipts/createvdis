@@ -1,0 +1,30 @@
+#!/bin/sh
+
+mkdir /home/wujue.yht/abdir
+
+user="wujue.yht"
+
+idx=1
+
+lines=`wc -l /home/.../cases/scipts/hosts_list | awk '{print $1}'`
+
+echo $lines
+
+ret=0
+
+while [ $idx -le $lines ]
+do
+	ip=`cat /home/.../cases/scipts/hosts_list | sed -n "${idx}p"`
+
+	ssh $user@$ip "collie vdi create vvvv$idx 1G"
+
+	ret_this=$?
+
+	ret=`expr $ret + $ret_this` 
+	
+	idx=`expr $idx + 1`
+done
+
+exit $ret
+
+

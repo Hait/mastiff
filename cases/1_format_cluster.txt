@@ -1,0 +1,32 @@
+
+[note]
+
+Format cluster by simple.
+
+[loop]
+1
+
+[command]
+
+collie cluster format -b simple
+
+[expect]
+
+using backend simple store
+
+[note]
+
+Format cluster by farm.
+
+[loop]
+1
+
+[command]
+
+collie cluster format -b farm
+
+[expect]
+
+using backend farm store
+
+

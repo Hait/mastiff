@@ -5,6 +5,7 @@ import time
 import commands
 import shutil
 import re
+import random
 
 from html_output import HtmlOutput
 
@@ -70,25 +71,33 @@ def deal_content_of_case(what, how):
 
 def deal_test_failure(output):
 	time_str = time.strftime("%Y-%m-%d-%H-%M-%S")
-	file = open(details_dir + time_str, "w")
+	random_str = str(random.random())
+	file_name = details_dir + time_str + random_str
+	file = open(file_name, "w")
 	file.write(output)
 	file.close()
-	result_html.write_fail(details_dir + time_str)
+	result_html.write_fail(file_name)
 
 def do_command():
 	for i in range(int(test_loop)):
-		out = commands.getoutput(test_command)
-		out_formated = out.replace("\n", "")
-		out_formated = re.sub("\t", " ", out_formated)
-		out_formated = re.sub(" +", " ", out_formated)
-		out_formated = re.sub("You have mail in.*", "", out_formated)
-		expect_formated = expect_result 
-		expect_formated = re.sub("\t", " ", expect_formated)
-		expect_formated = re.sub(" +", " ", expect_formated)
-		if out_formated.find(expect_formated) == -1:
-			deal_test_failure(out)
+		status, out = commands.getstatusoutput(test_command)
+		if expect_result == "$?":
+			if status == 0:
+				result_html.write_pass()
+			else:
+				deal_test_failure(out)
 		else:
-			result_html.write_pass()
+			out_formated = out.replace("\n", "")
+			out_formated = re.sub("\t", " ", out_formated)
+			out_formated = re.sub(" +", " ", out_formated)
+			out_formated = re.sub("You have mail in.*", "", out_formated)
+			expect_formated = expect_result 
+			expect_formated = re.sub("\t", " ", expect_formated)
+			expect_formated = re.sub(" +", " ", expect_formated)
+			if out_formated.find(expect_formated) == -1:
+				deal_test_failure(out)
+			else:
+				result_html.write_pass()
 
 def do_one_case_test(one_case):
 	global test_command

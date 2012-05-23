@@ -1,0 +1,17 @@
+
+[note]
+
+create one vdi at every node. this call one shell scipt. If you use one scipt
+please use the absolute path. 
+
+[loop]
+1
+
+[command]
+
+/home/.../cases/scipts/createvdis
+
+[expect]
+
+$?
+
