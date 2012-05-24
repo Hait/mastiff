@@ -1,0 +1,36 @@
+
+1, commont test setup
+
+Change the email_smtp.py accord your email account
+
+2, sheepdog test setup
+
+1) make install sheepdog
+
+Please make install your sheepdog project to system. Since the collie tool will not be installed to /bin directory, please copy it to this directory. If we want to call some commands on remote system with SSH, /bin is one of default directories.
+
+2) SSH setup
+
+The test need login to remote host without password prompt.
+
+These commands are useful.
+
+ssh-keygen
+
+ssh-copy-id -i .ssh/id_rsa.pub user@10.2.1.2
+
+3) do test on multible hosts
+
+You can refer to cases/4_vdi_create_each_node.txt
+
+3, test
+
+run ./main.py
+
+
+
+
+
+
+
+
