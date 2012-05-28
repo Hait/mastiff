@@ -23,14 +23,17 @@ ssh-copy-id -i .ssh/id_rsa.pub user@10.2.1.2
 
 You can refer to cases/4_vdi_create_each_node.txt
 
+4) how to run the cases now
+
+cases/scripts/hosts_list stores the hosts you want to connect to. Please modify it firstly.
+
+In some cases and scripts, you need to set absolute path accord your test environment.
+
+You can find them through this.
+
+$grep -r "yourpath" ./cases/*
+
 3, test
 
 run ./main.py
-
-
-
-
-
-
-
 
