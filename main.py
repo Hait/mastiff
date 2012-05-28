@@ -81,8 +81,13 @@ def deal_test_failure(output):
 def do_command():
 	for i in range(int(test_loop)):
 		status, out = commands.getstatusoutput(test_command)
-		if expect_result == "$?":
+		if expect_result == "$?0":
 			if status == 0:
+				result_html.write_pass()
+			else:
+				deal_test_failure(out)
+		elif expect_result == "$?!0":
+			if status != 0:
 				result_html.write_pass()
 			else:
 				deal_test_failure(out)
