@@ -1,17 +1,30 @@
 
 [note]
 
-create one vdi at every node. this call one shell scipt. If you use one scipt
-please use the absolute path. 
+Create one VDI at every node. 
 
 [loop]
 1
 
 [command]
 
-/home/.../cases/scipts/createvdis
+/yourpath/automated-test-framework/cases/scripts/createvdis
 
 [expect]
 
-$?
+$?0
 
+[note]
+
+At local node, create one same VDI with remote node. Check if VDI bitmap can work right 
+
+[loop]
+1
+
+[command]
+
+collie vdi create vvv1 1G
+
+[expect]
+
+$?!0

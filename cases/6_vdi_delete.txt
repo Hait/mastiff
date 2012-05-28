@@ -1,0 +1,34 @@
+
+[note]
+
+Create one VDI for delete
+
+[loop]
+1
+
+[command]
+
+collie vdi create Vdidel 1G 
+
+
+[expect]
+
+$?0
+
+
+[note]
+
+Delete one VDI at local node
+
+[loop]
+1
+
+[command]
+
+collie vdi delete Vdidel 
+
+[expect]
+
+$?0
+
+

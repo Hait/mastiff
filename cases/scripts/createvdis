@@ -1,10 +1,10 @@
 #!/bin/sh
 
-user="user"
+user="username"
 
 idx=1
 
-lines=`wc -l /home/.../cases/scipts/hosts_list | awk '{print $1}'`
+lines=`wc -l /yourpath/automated-test-framework/cases/scripts/hosts_list | awk '{print $1}'`
 
 echo $lines
 
@@ -12,9 +12,9 @@ ret=0
 
 while [ $idx -le $lines ]
 do
-	ip=`cat /home/.../cases/scipts/hosts_list | sed -n "${idx}p"`
+	ip=`cat /yourpath/automated-test-framework/cases/scripts/hosts_list | sed -n "${idx}p"`
 
-	ssh $user@$ip "collie vdi create vvvv$idx 1G"
+	ssh $user@$ip "collie vdi create vvv$idx 1G"
 
 	ret_this=$?
 

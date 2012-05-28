@@ -1,7 +1,7 @@
 
 [note]
 
-It is a passed case
+It is a simple example of passed case 
 
 [loop]
 3
@@ -18,7 +18,7 @@ test case
 
 [note]
 
-It is a failed case
+It is a simple example of failed case
 
 [loop]
 1

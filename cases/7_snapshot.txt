@@ -1,0 +1,98 @@
+
+[note]
+
+Create one VDI for snapshote
+
+[loop]
+1
+
+[command]
+
+collie vdi create vdisn 1G 
+
+
+[expect]
+
+$?0
+
+
+[note]
+
+Write base VDI 
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdisn 0 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input 
+
+[expect]
+
+$?0
+
+
+[note]
+
+Create one snapshot for base VDI
+
+[loop]
+1
+
+[command]
+
+collie vdi snapshot -s s1 vdisn 
+
+
+[expect]
+
+$?0
+
+
+[note]
+
+Write base VDI after creating snapshot
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdisn 0 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input_snapshot
+
+[expect]
+
+$?0
+
+
+[note]
+
+Read base VDI and check the data
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdisn 0 512 
+
+[expect]
+
+Test snapshot.It is an input data
+
+
+[note]
+
+Read snapshot and check the data
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdisn -s s1 0 512 
+
+[expect]
+
+It is an base VDI input data
+

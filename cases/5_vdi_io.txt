@@ -1,0 +1,79 @@
+
+[note]
+
+Create ond VDI for I/O 
+
+[loop]
+1
+
+[command]
+
+collie vdi create vdiio 1G
+
+[expect]
+
+$?0
+
+[note]
+
+Write data to VDI offset 0 size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 0 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+Read data and make sure it is the data have written. offset 0 size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 0 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+Write data to VDI offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 16M 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+Read data and make sure it is the data have written. offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 16M 512 
+
+[expect]
+
+It is an base VDI input data
+

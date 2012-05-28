@@ -1,7 +1,7 @@
 
 [note]
 
-create one vdi at local
+Create one VDI at local host
 
 [loop]
 1
@@ -12,13 +12,12 @@ collie vdi create v1 1G
 
 [expect]
 
-$?
+$?0
 
 
 [note]
 
-create one same vdi at local and it will fail. If you see the fail, do not
-care about it
+Create one same VDI at local again. Check if the bitmap of VDIs works right
 
 [loop]
 1
@@ -29,5 +28,5 @@ collie vdi create v1 1G
 
 [expect]
 
-$?
+$?!0
 
