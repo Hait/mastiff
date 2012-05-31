@@ -43,7 +43,7 @@ $grep -r "sleep" ./cases
 
 run ./main.py
 
-5, test cases no.
+4, test cases no.
 
 main.py will read all of files under ./cases, then sort them. For test sequence, please arrange the case name like this.
 
