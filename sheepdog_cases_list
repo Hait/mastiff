@@ -1,0 +1,148 @@
+1, format cluster
+
+	case 1, format the cluster by simple
+
+	case 2, format the cluster by farm, use the farm as storage theme for later tests 
+
+2, get nodes list
+
+	case 1, get nodes list from local node, check if all of nodes exists
+
+3, create VDI at local node
+
+	case 1, create one VDI at local node
+
+	case 2, create the VDI with same name, check if wan can create the same VDI
+
+4, create VDI at each node 
+
+	case 1, create one VDI at each node of cluster
+
+	case 2, create one VDI at local node with the same name of one remote node,
+		check if we can create the same VDI at cluster
+
+5, read/write VDI
+
+	case 1, write VDI at 0 offset with collie tool
+
+	case 2, read VDI at 0 offset, make sure the read data is same with the written data
+
+	case 3, write VDI at another offset with collie tool
+
+	case 4, read VDI at the offset, make sure the read data is same with the written data
+
+6, delete VDI
+
+	case 1, create one VDI for the next deletion
+
+	case 2, delete the created VDI 
+
+7, test snapshot
+
+	case 1, create one base VDI
+
+	case 2, write the base VDI at offset 0
+
+	case 3, create the snapshot for base VDI
+
+	case 4, write the base VDI at offset 0 with the other data 
+
+	case 5, read base VDI, check the data is new data or not
+
+	case 6, read snapshot, check the data is old data or not
+
+8, one node leave/join, cluster recovery
+
+	case 1, kill sheepdog at local host, use 'ps' command to find the first
+		thread of sheepdog, then kill it
+
+	case 2, dummy case, wait for recovery, sleep some time
+
+	case 3, start the sheepdog again
+
+	case 4, dummy case, wait for recovery, sleep some time
+
+	case 5, read VDI, check the written data is right or not
+
+	case 6, write VDI at another offset with collie tool
+
+	case 7, read VDI at the offset, make sure the read data is same with the written data
+
+9, two nodes leave/join, cluster recovery
+	
+	case 1, kill two sheepdogs at remote hosts, use 'ps' command to find the first
+		thread of sheepdog at remote hosts, then kill it
+
+	case 2, read VDI during recovey, check the written data is right or not
+
+	case 3, write VDI at another offset with collie tool during recovey
+
+	case 4, read VDI at the offset during recovey, make sure the read data is same with the written data
+
+	case 5, dummy case, wait for recovery, sleep some time
+
+	case 6, read VDI after recovey, check the written data is right or not
+
+	case 7, write VDI at another offset with collie tool after recovey
+
+	case 8, read VDI at the offset after recovey, make sure the read data is same with the written data
+
+	case 9, start the sheepdogs again
+
+	case 10, read VDI during recovey, check the written data is right or not
+
+	case 11, write VDI at another offset with collie tool during recovey
+
+	case 12, read VDI at the offset during recovey, make sure the read data is same with the written data
+
+	case 13, dummy case, wait for recovery, sleep some time
+
+	case 14, read VDI after recovey, check the written data is right or not
+
+	case 15, write VDI at another offset with collie tool after recovey
+
+	case 16, read VDI at the offset after recovey, make sure the read data is same with the written data
+
+a1, test shutdown/restart cluster
+
+	case 1, shutdown the cluster
+
+	case 2, dummy case, after shutdown need sleep some time  
+
+	case 3, start the sheepdog at local host
+
+	case 4, start the sheepdog at remote hosts
+
+	case 5, dummy case, wait for the cluster to start and sleep some time
+
+	case 6, get nodes list, check if all of nodes have joined
+
+	case 7, get VDIs list, check one of VDI has started or not
+
+	case 8, get VDIs list, check one of VDI has started or not
+
+	case 9, get VDIs list, check one of VDI has started or not
+
+	case 10, read VDI, check the written data is right or not
+
+	case 11, write VDI at another offset with collie tool
+
+	case 12, read VDI at the offset, make sure the read data is same with the written data
+
+a2, pressure test, create VDI
+
+	case 1, create VDI at multible nodes at the same time, in the script specify how many nodes
+
+	case 2, dummy case, sleep some time, wait for the pressure test over
+
+	case 3, get nodes list, check if some nodes crash
+
+a3, pressure test, read/write 
+
+	case 1, read/write VDI at multible nodes at the same time, in the script specify how many nodes
+
+	case 2, dummy case, sleep some time, wait for the pressure test over
+
+	case 3, get nodes list, check if some nodes crash
+
+

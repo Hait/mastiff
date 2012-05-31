@@ -1,0 +1,109 @@
+
+[note]
+
+kill the master node
+
+[loop]
+1
+
+[command]
+
+/home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/kill1nodelocal
+
+[expect]
+
+$?0
+
+[note]
+
+sleep for some time to  wait recovery 
+
+[loop]
+1
+
+[command]
+
+sleep 60
+
+[expect]
+
+$?0
+
+[note]
+
+start the master node
+
+[loop]
+1
+
+[command]
+
+sudo /home/wujue.yht/sheepcode/sheepdog/sheep/sheep /store/tempfailtest
+
+[expect]
+
+$?0
+
+
+[note]
+
+sleep for some time to  wait recovery 
+
+[loop]
+1
+
+[command]
+
+sleep 60
+
+[expect]
+
+$?0
+
+[note]
+
+After recovery, read data and make sure it is the data have written. offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 16M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+After recovery, write data. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 128M 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+After recovery, read data and make sure it is the data have written. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 128M 512 
+
+[expect]
+
+It is an base VDI input data
+

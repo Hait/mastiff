@@ -27,13 +27,31 @@ You can refer to cases/4_vdi_create_each_node.txt
 
 cases/scripts/hosts_list stores the hosts you want to connect to. Please modify it firstly.
 
-In some cases and scripts, you need to set absolute path accord your test environment.
+In some cases and scripts, you need to set absolute path accord to your test environment.
 
-You can find them through this.
+You can find them through this. 'wujue.yht' is my test path.
 
-$grep -r "yourpath" ./cases/*
+$grep -r "wujue.yht" ./cases
+
+In some cases, test need sleep some time to go on for the next case. Please set your right sleep time.
+
+You can find them through this. It is in seconds.
+
+$grep -r "sleep" ./cases
 
 3, test
 
 run ./main.py
+
+5, test cases no.
+
+main.py will read all of files under ./cases, then sort them. For test sequence, please arrange the case name like this.
+
+1, 2, 3, 4, 5, 6, 7, 8, 9
+
+a1, a2, ...
+
+b1, b2, ...
+
+
 

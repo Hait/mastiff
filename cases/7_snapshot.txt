@@ -25,7 +25,7 @@ Write base VDI
 
 [command]
 
-collie vdi write vdisn 0 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input 
+collie vdi write vdisn 0 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input 
 
 [expect]
 
@@ -58,7 +58,7 @@ Write base VDI after creating snapshot
 
 [command]
 
-collie vdi write vdisn 0 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input_snapshot
+collie vdi write vdisn 0 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input_snapshot
 
 [expect]
 

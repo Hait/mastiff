@@ -1,6 +1,37 @@
 
 [note]
 
+create VDI at multible hosts at same time
+
+[loop]
+1
+
+[command]
+
+/home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/createvdis_press
+
+[expect]
+
+$?0
+
+
+[note]
+
+sleep some time to wait the pressure test
+
+[loop]
+1
+
+[command]
+
+sleep 60
+
+[expect]
+
+$?0
+
+[note]
+
 List all of nodes of cluster. Check if all of nodes has joined
 
 [loop]

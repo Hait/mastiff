@@ -8,7 +8,7 @@ Create one VDI at local host
 
 [command]
 
-collie vdi create v1 1G 
+collie vdi create vvv0 1G 
 
 [expect]
 
@@ -24,7 +24,7 @@ Create one same VDI at local again. Check if the bitmap of VDIs works right
 
 [command]
 
-collie vdi create v1 1G 
+collie vdi create vvv0 1G 
 
 [expect]
 

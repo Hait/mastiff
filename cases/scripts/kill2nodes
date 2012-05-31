@@ -1,6 +1,6 @@
 #!/bin/sh
 
-user="wujue.yht"
+user="root"
 
 idx=1
 
@@ -10,11 +10,17 @@ echo $lines
 
 ret=0
 
-while [ $idx -le $lines ]
+while [ $idx -le 2 ]
 do
 	ip=`cat /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/hosts_list | sed -n "${idx}p"`
 
-	ssh $user@$ip "collie vdi create vvv$idx 1G"
+	spid=`ssh $user@$ip ps -ef | grep sheep | sed -n '{1p}' | awk '{print $2}'`
+
+	ret_this=$?
+
+	ret=`expr $ret + $ret_this` 
+
+	ssh $user@$ip "kill $spid"
 
 	ret_this=$?
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-user="wujue.yht"
+user="root"
 
 idx=1
 
@@ -14,7 +14,7 @@ while [ $idx -le $lines ]
 do
 	ip=`cat /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/hosts_list | sed -n "${idx}p"`
 
-	ssh $user@$ip "collie vdi create vvv$idx 1G"
+	ssh $user@$ip "/home/wujue.yht/sheepcode/sheepdog/sheep/sheep /store/tempfailtest"
 
 	ret_this=$?
 

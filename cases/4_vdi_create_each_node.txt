@@ -8,7 +8,7 @@ Create one VDI at every node.
 
 [command]
 
-/yourpath/automated-test-framework/cases/scripts/createvdis
+/home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/createvdis
 
 [expect]
 

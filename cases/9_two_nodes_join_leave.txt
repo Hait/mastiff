@@ -1,0 +1,255 @@
+
+[note]
+
+kill two nodes
+
+[loop]
+1
+
+[command]
+
+/home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/kill2nodes
+
+[expect]
+
+$?0
+
+
+[note]
+
+During recovery, read data and make sure it is the data have written. offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 16M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+During recovery, write data. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 128M 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+During recovery, read data and make sure it is the data have written. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 128M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+sleep for some time to  wait recovery 
+
+[loop]
+1
+
+[command]
+
+sleep 60
+
+[expect]
+
+$?0
+
+[note]
+
+After recovery, read data and make sure it is the data have written. offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 16M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+After recovery, write data. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 128M 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+After recovery, read data and make sure it is the data have written. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 128M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+start two nodes
+
+[loop]
+1
+
+[command]
+
+/home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/start2nodes
+
+[expect]
+
+$?0
+
+
+
+[note]
+
+During recovery, read data and make sure it is the data have written. offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 16M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+During recovery, write data. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 128M 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+During recovery, read data and make sure it is the data have written. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 128M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+sleep for some time to  wait recovery 
+
+[loop]
+1
+
+[command]
+
+sleep 60
+
+[expect]
+
+$?0
+
+[note]
+
+After recovery, read data and make sure it is the data have written. offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 16M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+[note]
+
+After recovery, write data. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 128M 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+After recovery, read data and make sure it is the data have written. offset 128M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 128M 512 
+
+[expect]
+
+It is an base VDI input data
+

@@ -1,0 +1,239 @@
+
+[note]
+
+shutdown the cluster 
+
+[loop]
+1
+
+[command]
+
+collie cluster shutdown 
+
+[expect]
+
+$?0
+
+
+
+
+[note]
+
+sleep for some time to test 
+
+[loop]
+1
+
+[command]
+
+sleep 60
+
+[expect]
+
+$?0
+
+
+
+
+[note]
+
+start the sheep at local node 
+
+[loop]
+1
+
+[command]
+
+sudo /home/wujue.yht/sheepcode/sheepdog/sheep/sheep /store/tempfailtest
+
+[expect]
+
+$?0
+
+
+
+
+[note]
+
+start the sheep at other nodes, then the cluster starts again
+
+[loop]
+1
+
+[command]
+
+/home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/start_cluster
+
+[expect]
+
+$?0
+
+
+
+
+[note]
+
+sleep for some time to test 
+
+[loop]
+1
+
+[command]
+
+sleep 60
+
+[expect]
+
+$?0
+
+
+
+
+[note]
+
+check all of nodes have joined
+
+[loop]
+1
+
+[command]
+
+collie node list
+
+[expect]
+
+M   Id   Host:Port         V-Nodes       Zone
+-    0   10.232.135.205:7000    64 -846731254
+-    1   10.232.135.206:7000    64 -829954038
+-    2   10.232.135.207:7000    64 -813176822
+-    3   10.232.135.208:7000    64 -796399606
+-    4   10.232.135.209:7000    64 -779622390
+
+
+
+
+
+[note]
+
+check all of VDI have started
+
+[loop]
+1
+
+[command]
+
+collie vdi list
+
+[expect]
+
+  vvv1         1  1.0 GB   
+
+
+
+
+
+
+[note]
+
+check all of VDI have started
+
+[loop]
+1
+
+[command]
+
+collie vdi list
+
+[expect]
+
+  vvv2         1  1.0 GB  
+
+
+
+
+
+[note]
+
+check all of VDI have started
+
+[loop]
+1
+
+[command]
+
+collie vdi list
+
+[expect]
+
+  vvv3         1  1.0 GB  
+
+
+
+
+
+[note]
+
+check all of VDI have started
+
+[loop]
+1
+
+[command]
+
+collie vdi list
+
+[expect]
+
+  vvv4         1  1.0 GB   
+
+
+[note]
+
+Read data and make sure it is the data have written. offset 16M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 16M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+
+[note]
+
+Write data to VDI offset 64M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi write vdiio 64M 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
+
+[expect]
+
+$?0
+
+
+[note]
+
+Read data and make sure it is the data have written. offset 64M size 512
+
+[loop]
+1
+
+[command]
+
+collie vdi read vdiio 64M 512 
+
+[expect]
+
+It is an base VDI input data
+
+
+

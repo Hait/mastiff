@@ -1,0 +1,26 @@
+#!/bin/sh
+
+idx=1
+
+ret=0
+
+while [ $idx -le 1 ]
+do
+	spid=`ps -ef | grep sheep | sed -n '{1p}' | awk '{print $2}'`
+
+	ret_this=$?
+
+	ret=`expr $ret + $ret_this` 
+
+	sudo kill $spid
+
+	ret_this=$?
+
+	ret=`expr $ret + $ret_this` 
+	
+	idx=`expr $idx + 1`
+done
+
+exit $ret
+
+

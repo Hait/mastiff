@@ -23,7 +23,7 @@ Write data to VDI offset 0 size 512
 
 [command]
 
-collie vdi write vdiio 0 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input
+collie vdi write vdiio 0 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
 
 [expect]
 
@@ -55,7 +55,7 @@ Write data to VDI offset 16M size 512
 
 [command]
 
-collie vdi write vdiio 16M 512 < /home/yourpath/automated-test-framework/cases/scripts/vdiio_input
+collie vdi write vdiio 16M 512 < /home/wujue.yht/test/tfw-test/automated-test-framework/cases/scripts/vdiio_input
 
 [expect]
 
