@@ -148,6 +148,8 @@ def do_one_case_test(one_case):
 def do_cases_of_file(file, idx):
 	result_html.write_case_no(idx)
 
+	print "begin test case group %d" %idx
+
 	time_str = time.strftime("case begin running at %Y-%m-%d %H:%M:%S")
 	result_html.write_time(time_str)
 
