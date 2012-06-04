@@ -27,7 +27,7 @@ class HtmlOutput():
 		return self.file_name
 
 	def write_case_no(self, no):
-		self.html_file.write("<br><br><p><bold><h1>Test Case No. ")
+		self.html_file.write("<br><br><p><bold><h1>Test Case Group No. ")
 		no_str = "%d" %no
 		self.html_file.write(no_str)
 		self.html_file.write("</h1></bold></p>\n")
